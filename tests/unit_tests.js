@@ -1,6 +1,6 @@
 const assert = require('assert');
 const crypto = require('crypto');
-const { generateSignature, fetchBatch, generateSerialNumbers } = require('../solution/client');
+const { generateSignature, fetchBatch, generateSerialNumbers } = require('../client/client');
 
 console.log('Unit Test for EnergyGrid Client\n');
 
@@ -85,7 +85,3 @@ runTest('fetchBatch handles 401 error gracefully', async () => {
     const result = await fetchBatch(['SN-001'], mockAxios);
     assert.strictEqual(result, null, 'Should return null on 401 error');
 });
-
-setTimeout(() => {
-    console.log(`\nTest Summary: ${passedTests}/${totalTests} Passed.`);
-}, 3000);
